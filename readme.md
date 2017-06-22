@@ -23,7 +23,7 @@ docker run -d -i --cap-add=NET_ADMIN -p 6666:8080 carlozleite/ape-cage
 
 ### DEMO
 
-[![Demo](https://vimeo.com/222723708)]
+![Demo](https://vimeo.com/222723708)
 
 
 
