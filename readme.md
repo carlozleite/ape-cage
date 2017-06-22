@@ -1,4 +1,4 @@
-[logo](https://image.ibb.co/hWHEtQ/ape_cage_logo_1.png)
+![logo](https://image.ibb.co/hWHEtQ/ape_cage_logo_1.png)
 
 Simple chaos monkey tests with http api.
 
