@@ -1,4 +1,4 @@
-![logo](https://image.ibb.co/hWHEtQ/ape_cage_logo_1.png)
+![logo](https://github.com/carlozleite/ape-cage/raw/a482e8b2ed07542e74e70b952e2f13e47432a695/ape-cage/lib/img/ape-cage-logo-1.png)
 
 Simple chaos monkey tests with http api.
 
@@ -23,8 +23,8 @@ docker run -d -i --cap-add=NET_ADMIN -p 6666:8080 carlozleite/ape-cage
 
 ### DEMO
 
-![win1](https://preview.ibb.co/f4zO3Q/ape_1.gif)
-![win2](https://preview.ibb.co/cwBLiQ/ape_2.gif)
+![win1](https://github.com/carlozleite/ape-cage/raw/a482e8b2ed07542e74e70b952e2f13e47432a695/ape-cage/lib/img/ape-1.gif)
+![win2](https://github.com/carlozleite/ape-cage/raw/a482e8b2ed07542e74e70b952e2f13e47432a695/ape-cage/lib/img/ape-2.gif)
 
 https://vimeo.com/222723708
 
