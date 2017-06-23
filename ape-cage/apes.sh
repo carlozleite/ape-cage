@@ -107,8 +107,8 @@ function net-latency(){
 
          if [ -z ${TCOUT} ] ; then
 		
-		parse_tc
                 tc qdisc add dev ${IFACE} root netem delay ${DMAX}ms ${DMIN}ms 
+		parse_tc
                 ( nohup sleep ${TMOUT} && tc qdisc del dev ${IFACE} root netem delay ${DMAX}ms ${DMIN}ms && parse_tc & ) >/dev/null 2>&1
          else
 
