@@ -23,9 +23,9 @@ docker run -d -i --cap-add=NET_ADMIN -p 6666:8080 carlozleite/ape-cage
 
 ### DEMO
 
-![win1](https://github.com/carlozleite/ape-cage/raw/a482e8b2ed07542e74e70b952e2f13e47432a695/ape-cage/lib/img/ape-11.gif)
+![win1](https://github.com/carlozleite/ape-cage/raw/master/ape-cage/lib/img/ape-11.gif)
 
-![win2](https://github.com/carlozleite/ape-cage/raw/a482e8b2ed07542e74e70b952e2f13e47432a695/ape-cage/lib/img/ape-22.gif)
+![win2](https://github.com/carlozleite/ape-cage/raw/master/ape-cage/lib/img/ape-22.gif)
 
 https://vimeo.com/222723708
 
