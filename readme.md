@@ -27,7 +27,7 @@ docker run  -i -d --cap-add=NET_ADMIN \
 -e LOGSTASH_PORT='6666' \
 -e LOGSTASH_PROTO='tcp' \
 -e APE_AUTH=<BASE64 user:pass> \
-carlozleite/ape-cage:2.0 
+carlozleite/ape-cage
 ```
 
 ### DEMO
