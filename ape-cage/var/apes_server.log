@@ -1,0 +1,28 @@
+/ape-cage/bin/ape_server.sh: line 9: /ape-cage/bin/bin/shell2http: No such file or directory
+/ape-cage/bin/ape_server.sh: line 9: /ape-cage/bin/bin/shell2http: No such file or directory
+/ape-cage/bin/ape_server.sh: line 9: /ape-cage/bin/bin/shell2http: No such file or directory
+/ape-cage/bin/ape_server.sh: line 9: /ape-cage/bin/bin/shell2http: No such file or directory
+2017/07/03 17:22:46 register: /chaos/loss (/ape-cage/apectl loss $v_ape_config)
+2017/07/03 17:22:46 register: /chaos/latency (/ape-cage/apectl latency $v_ape_config)
+2017/07/03 17:22:46 register: /chaos/corrupt (/ape-cage/apectl corrupt $v_ape_config)
+2017/07/03 17:22:46 register: / (index page)
+2017/07/03 17:22:46 listen http://:8080/
+2017/07/03 17:22:46 listen tcp :8080: bind: address already in use
+2017/07/03 17:22:47 register: /chaos/loss (/ape-cage/apectl loss $v_ape_config)
+2017/07/03 17:22:47 register: /chaos/latency (/ape-cage/apectl latency $v_ape_config)
+2017/07/03 17:22:47 register: /chaos/corrupt (/ape-cage/apectl corrupt $v_ape_config)
+2017/07/03 17:22:47 register: / (index page)
+2017/07/03 17:22:47 listen http://:8080/
+2017/07/03 17:22:47 listen tcp :8080: bind: address already in use
+2017/07/03 17:22:50 register: /chaos/loss (/ape-cage/apectl loss $v_ape_config)
+2017/07/03 17:22:50 register: /chaos/latency (/ape-cage/apectl latency $v_ape_config)
+2017/07/03 17:22:50 register: /chaos/corrupt (/ape-cage/apectl corrupt $v_ape_config)
+2017/07/03 17:22:50 register: / (index page)
+2017/07/03 17:22:50 listen http://:8080/
+2017/07/03 17:22:50 listen tcp :8080: bind: address already in use
+2017/07/03 17:22:53 register: /chaos/loss (/ape-cage/apectl loss $v_ape_config)
+2017/07/03 17:22:53 register: /chaos/latency (/ape-cage/apectl latency $v_ape_config)
+2017/07/03 17:22:53 register: /chaos/corrupt (/ape-cage/apectl corrupt $v_ape_config)
+2017/07/03 17:22:53 register: / (index page)
+2017/07/03 17:22:53 listen http://:8080/
+2017/07/03 17:22:53 listen tcp :8080: bind: address already in use

@@ -6,7 +6,8 @@ Basic useful feature list:
 
  * Command Line interface
  * HTTP API Interface to launch monkeys remote inside container.
- * JSON Output
+ * Use supervisord to control monkey execution.
+ * Send Logs to remote logstash server.
 
 
 Monkeys avaliable:
@@ -14,11 +15,19 @@ Monkeys avaliable:
  * Loss - Generate packet loss
  * Latency - Generate network delay.
  * Corrupt - Corrupt network packets.
+ * Kill - kill process by name.
  
 ### RUN Container:
 
 ```bash
-docker run -d -i --cap-add=NET_ADMIN -p 6666:8080 carlozleite/ape-cage
+docker run  -i -d --cap-add=NET_ADMIN \
+--name ape-cage-v2 \
+-p 6666:8081 \
+-e LOGSTASH_SERVER='<LOGSTASH-IP-ADDR>' \
+-e LOGSTASH_PORT='6666' \
+-e LOGSTASH_PROTO='tcp' \
+-e APE_AUTH=<BASE64 user:pass> \
+carlozleite/ape-cage:2.0 
 ```
 
 ### DEMO
@@ -34,14 +43,18 @@ https://vimeo.com/222723708
 ### Generate packet loss:
 
 ```bash
-curl http://127.0.0.1:6666/chaos/loss
+curl -H "Authorization: Basic <Base64-Basic-Auth>" http://127.0.0.1:6666/chaos/loss
 ```
 
 #### Parameters:
 
 ```bash
-curl http://127.0.0.1:6666/chaos/loss?ape_config=TMOUT:20,LMIN:30,LMAX:50
+curl -H "Authorization: Basic <Base64-Basic-Auth>" http://127.0.0.1:6666/chaos/loss?ape_config=JOB_ID:TEST_19282752,TMOUT:20,LMIN:30,LMAX:50
 ```
+
+##### JOB_ID: <String>
+
+Monkey test ID.
 
 ##### TMOUT: <Integer> 
 
@@ -62,15 +75,19 @@ Maximum percentage of packet loss
 #### Generate Network Latency:
 
 ```bash
-curl http://127.0.0.1:6666/chaos/latency
+curl -H "Authorization: Basic <Base64-Basic-Auth>" http://127.0.0.1:6666/chaos/latency
 ```
 
 ## Parameters:
 
 ```bash
-curl http://127.0.0.1:6666/chaos/latency?ape_config=TMOUT:20,DMIN:30,DMAX:50,IFACE:eth0
+curl -H "Authorization: Basic <Base64-Basic-Auth>" http://127.0.0.1:6666/chaos/latency?ape_config=JOB_ID:TEST_19282752,TMOUT:20,DMIN:30,DMAX:50,IFACE:eth0
 ```
 
+
+##### JOB_ID: <String>
+
+Monkey test ID.
 
 ##### TMOUT: <Integer> 
 
@@ -91,14 +108,18 @@ Maximum delay in milliseconds
 ### Generate Network Corruption:
 
 ```bash
-curl http://127.0.0.1:6666/chaos/corrupt
+curl -H "Authorization: Basic <Base64-Basic-Auth>" http://127.0.0.1:6666/chaos/corrupt
 ```
 
 #### Parameters:
 
 ```bash
-curl http://127.0.0.1:6666/chaos/corrupt?ape_config=TMOUT:20,CPERC:50,IFACE:eth0
+curl -H "Authorization: Basic <Base64-Basic-Auth>" http://127.0.0.1:6666/chaos/corrupt?ape_config=JOB_ID:TEST_19282752,TMOUT:20,CPERC:50,IFACE:eth0
 ```
+
+##### JOB_ID: <String>
+
+Monkey test ID.
 
 ##### TMOUT: <Integer> 
 
@@ -112,16 +133,39 @@ Network Interface name - Default eth0
 
 Percentage of network corruption.
 
+
+### Kill process by Name:
+
+```bash
+curl -H "Authorization: Basic <Base64-Basic-Auth>" http://127.0.0.1:6666/chaos/kill
+```
+
+#### Parameters:
+
+```bash
+curl -H "Authorization: Basic <Base64-Basic-Auth>" http://127.0.0.1:6666/chaos/kill?ape_config=JOB_ID:TEST_19282752,PROC:java
+```
+
+##### JOB_ID: <String>
+
+Monkey test ID.
+
+##### PROC: <string>
+
+Process name to kill.
+
+
+
 # COMMAND-LINE 
 
 ```bash
-docker exec -it <container> /ape-cage/apes.sh
+docker exec -it <container> /ape-cage/apectl
 ```
 
 ![cmd](https://preview.ibb.co/m0wZsk/ape_cage1.png)
 
 ## TODO:
 
-* Set HTTP authentication.
-* Improve background process control
-* Add more monkeys
+* Set HTTP authentication. - OK
+* Improve background process control - OK
+* Add mora monkeys

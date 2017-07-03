@@ -1,0 +1,81 @@
+#!/bin/bash
+
+ACHOME=$(dirname "$0")
+
+monkey=$1
+APE_CONFIG=$2
+
+set_config(){
+
+        if [[ -z ${APE_CONFIG}  ]]; then                                                                                        
+                                                                                                                                
+                source ${ACHOME}/etc/${monkey}.cfg                                                                              
+                                                                                                                                
+        else          
+
+		echo "${APE_CONFIG}" | tr ',' '\n' | tr ':' '=' > ${ACHOME}/var/${monkey}.tcfg
+		
+ 
+	fi
+
+}
+
+set_config
+
+case $1 in 
+
+loss)
+
+	/usr/bin/supervisorctl start loss-monkey
+
+;;
+
+corrupt)
+
+	/usr/bin/supervisorctl start corrupt-monkey
+
+;;
+
+latency)
+
+	/usr/bin/supervisorctl start latency-monkey
+
+;;
+
+kill)
+
+	/usr/bin/supervisorctl start kill-monkey
+
+;;
+
+*)
+
+
+cat << "EOF" 
+            __,__
+   .--.  .-"     "-.  .--.
+  / .. \/  .-. .-.  \/ .. \
+ | |  '|  /   Y   \  |'  | |
+ | \   \  \ 0 | 0 /  /   / |
+  \ '- ,\.-"`` ``"-./, -' /
+   `'-' /_   ^ ^   _\ '-'`
+       |  \._   _./  |
+       \   \ `~` /   /
+        '._ '-=-' _.'
+           '~---~' 
+
+EOF
+
+
+        echo "USAGE: apes.sh <loss|corrupt|latency|kill> [ape_config]"
+        echo ""                           
+        echo "loss config:  JOB_ID:<ID>,TMOUT:<VAL>,LMIN:<VAL>,LMAX:<VAL>,IFACE:<VAL>"
+        echo "latency config:  JOB_ID:<ID>,TMOUT:<VAL>,DMIN:<VAL>,DMAX:<VAL>,IFACE:<VAL>"
+        echo "corrupt config:  JOB_ID:<ID>,TMOUT:<VAL>,LPERC:<VAL>,IFACE:<VAL>"
+        echo "kill config: JOB_ID:<ID>,PROC:<PROC_NAME>"
+        echo ""    
+
+;;
+
+esac
+

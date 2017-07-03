@@ -3,22 +3,22 @@
 ACHOME=$(dirname "$0")
 
 monkey=$1
-APE_CONFIG=$2
 IFACE=enp0s8
+
 
 function parse_tc(){
 
 	 TDATE=`date "+%d/%m/%Y %H:%M:%S"` 
 
-	 TCOUT=`tc qdisc | grep netem | awk -F":" '{print "oupput="$2""}' | tr ' ' '#'`  
+	 TCOUT=`tc qdisc | grep netem | awk -F":" '{print $2}' | tr ' ' '#'`  
 
 
 	if [ ! -z ${TCOUT} ] ; then
 
-	 	echo "'${TCOUT}' host=${HOSTNAME} monkey=${monkey} timeout=${TMOUT}s date='${TDATE}'" | tr '#' ' ' | xargs jo -p 
+	 	echo "[${TDATE}], Job:${JOB_ID}, Monkey:${monkey}, Msg:Started - '${TCOUT}', Host:${HOSTNAME} Timeout:${TMOUT}s " | tr '#' ' ' 
 	else
 
-		echo "output='Removed. No netem rules active...' host=${HOSTNAME} monkey=${monkey} timeout=${TMOUT}s date='${TDATE}'" | xargs jo -p
+		echo "[${TDATE}], Job:${JOB_ID}, Monkey:${monkey}, Msg:Finished - No netem rules active..., Host:${HOSTNAME}, Timeout:${TMOUT}s " 
 	fi
 
 }
@@ -28,7 +28,7 @@ function msg_still(){
 
 		TDATE=`date "+%d/%m/%Y %H:%M:%S"`
                 OUT2=`echo "${TCOUT}" | tr '#' ' '`
-                echo "output='Netem still running. ${OUT2}' host=${HOSTNAME} monkey=${monkey} timeout=${TMOUT}s date='${TDATE}'" | xargs jo -p
+                echo "[${TDATE}], Job:${JOB_ID}, Monkey:${monkey}, Msg:'Netem still running. ${OUT2}', Host:${HOSTNAME}, Timeout:${TMOUT}s " 
 
 
 }
@@ -44,16 +44,20 @@ function clear_all(){
 
 set_config(){
 
-        if [[ -z ${APE_CONFIG}  ]]; then
-
-                source ${ACHOME}/etc/${monkey}.cfg
-
-        else
 
 		source ${ACHOME}/etc/${monkey}.cfg
 
-                eval `echo "${APE_CONFIG}" | tr ':' '=' | tr ',' ' '`
-        fi
+		if [ -f ${ACHOME}/var/${monkey}.tcfg ]; then 
+			source ${ACHOME}/var/${monkey}.tcfg
+		fi	
+
+		if [ -z ${JOB_ID} ] ; then
+
+			TDATE=`date "+%d/%m/%Y %H:%M:%S"`
+
+			echo "[${TDATE}], Monkey:${monkey}, Msg:'Error. Please set JOB_ID !', Host:${HOSTNAME}"
+			exit 1 
+		fi
 }
 
 function net-loss(){
@@ -67,7 +71,9 @@ function net-loss(){
 
 		tc qdisc add dev ${IFACE} root netem loss ${LMIN}% ${LMAX}%
 		parse_tc
-		( nohup sleep ${TMOUT} && tc qdisc del dev ${IFACE} root netem loss ${LMIN}% ${LMAX}% && parse_tc & ) >/dev/null 2>&1
+		sleep ${TMOUT} 
+		tc qdisc del dev ${IFACE} root netem loss ${LMIN}% ${LMAX}% 
+		parse_tc
 	 else
 
 		msg_still		
@@ -86,7 +92,9 @@ function net-corrupt(){
 
                 tc qdisc add dev ${IFACE} root netem corrupt ${CPERC}%
                 parse_tc
-                ( nohup sleep ${TMOUT} && tc qdisc del dev ${IFACE} root netem corrupt ${CPERC}% && parse_tc & ) >/dev/null 2>&1
+                sleep ${TMOUT} 
+		tc qdisc del dev ${IFACE} root netem corrupt ${CPERC}% 
+		parse_tc 
          else
 
 		msg_still
@@ -94,10 +102,6 @@ function net-corrupt(){
          fi 
 
 }
-
-
-#tc qdisc add dev eth0 root latency delay 1000ms 500ms
-
 
 function net-latency(){
 
@@ -109,7 +113,9 @@ function net-latency(){
 		
                 tc qdisc add dev ${IFACE} root netem delay ${DMAX}ms ${DMIN}ms 
 		parse_tc
-                ( nohup sleep ${TMOUT} && tc qdisc del dev ${IFACE} root netem delay ${DMAX}ms ${DMIN}ms && parse_tc & ) >/dev/null 2>&1
+                sleep ${TMOUT} 
+		tc qdisc del dev ${IFACE} root netem delay ${DMAX}ms ${DMIN}ms 
+		parse_tc 
          else
 
 		msg_still
@@ -119,26 +125,14 @@ function net-latency(){
 
 }
 
-function net-nullroute(){
+function proc-kill(){
 
-	
-	TDATE=`date "+%d/%m/%Y %H:%M:%S"`
-	ip route add blackhole 10.0.0.0/8
-	echo "output=ip route add blackhole 10.0.0.0/8 host=${HOSTNAME} monkey=${monkey} date=${TDATE}" | xargs jo -p
-	( nohup sleep ${TMOUT} && route del blackhole 10.0.0.0/8 & ) >/dev/null 2>&1
+	set_config
 
-}
-
-function net-delgw(){
-
-	TDATE=`date "+%d/%m/%Y %H:%M:%S"`
-	GW=`route -n | awk '{print $2}' | grep [0-9] | grep -v 0.0.0.0`
-	#route del default
-	echo "output='route del default' host=${HOSTNAME} monkey=${monkey} date='${TDATE}'" | xargs jo -p
-	#( nohup sleep ${TMOUT} && route add default ${GW} & ) >/dev/null 2>&1
-
-
-
+	pkill -9 ${PROC}
+	TDATE=`date "+%d/%m/%Y %H:%M:%S"`                                                                                           
+        echo "[${TDATE}] Job:${JOB_ID}, Monkey:${monkey}, Msg:Kill processs ${PROC}, Host:${HOSTNAME} Timeout:${TMOUT}s" 
+	sleep 5
 
 }
 
@@ -163,17 +157,13 @@ latency)
 
 ;;
 
-nullroute)
 
-	net-nullroute
+kill)
 
-;;
-
-delgw)
-
-	net-delgw
+	proc-kill
 
 ;;
+
 
 *)
 
@@ -194,11 +184,12 @@ cat << "EOF"
 EOF
 
 
-	echo "USAGE: apes.sh <loss|corrupt|latency|nullroute|delgw> [ape_config]"
+	echo "USAGE: apes.sh <loss|corrupt|latency|kill> [ape_config]"
 	echo ""
-	echo "loss config:  TMOUT:<VAL>,LMIN:<VAL>,LMAX:<VAL>,IFACE:<VAL>"
-	echo "latency config:  TMOUT:<VAL>,DMIN:<VAL>,DMAX:<VAL>,IFACE:<VAL>"
-	echo "corrupt config:  TMOUT:<VAL>,LPERC:<VAL>,IFACE:<VAL>"
+	echo "loss config:  JOB_ID:<ID>,TMOUT:<VAL>,LMIN:<VAL>,LMAX:<VAL>,IFACE:<VAL>"
+	echo "latency config:  JOB_ID:<ID>,TMOUT:<VAL>,DMIN:<VAL>,DMAX:<VAL>,IFACE:<VAL>"
+	echo "corrupt config:  JOB_ID:<ID>,TMOUT:<VAL>,LPERC:<VAL>,IFACE:<VAL>"
+	echo "kill config: JOB_ID:<ID>,PROC:<PROC_NAME>"
 	echo ""
 
 ;;

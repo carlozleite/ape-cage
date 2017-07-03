@@ -1,11 +1,15 @@
-FROM httpd:alpine
+FROM java:8-jdk-alpine
 
 RUN echo http://nl.alpinelinux.org/alpine/edge/testing >> /etc/apk/repositories
 RUN apk upgrade --update-cache --available
-RUN apk add --update python iproute2 jo wget
+RUN apk add --update python py-pip iproute2 jo wget supervisor bash
 ADD ape-cage /ape-cage
 RUN wget --no-check-certificate https://github.com/msoap/shell2http/releases/download/1.10/shell2http-1.10.linux.386.tar.gz -O /tmp/shell2http.tar.gz
 RUN tar -xvzf /tmp/shell2http.tar.gz -C /ape-cage/bin/ shell2http
 RUN rm -f /tmp/shell2http.tar.gz
+RUN wget http://central.maven.org/maven2/org/atmosphere/samples/spring-boot-sample-atmosphere/2.4.4/spring-boot-sample-atmosphere-2.4.4.jar -O /sample-app.jar
+RUN pip install supervisor-logstash-notifier
 RUN sed -i s/enp0s8/eth0/g /ape-cage/etc/*
-CMD ["/ape-cage/ape_server.sh"]
+ADD supervisor.d /etc/supervisor.d
+ADD supervisord.conf /etc/supervisord.conf
+CMD ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]

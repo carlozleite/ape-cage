@@ -1,0 +1,73 @@
+[29/06/2017 03:17:59] Monkey: loss Started - ' dev eth0 root refcnt 2 limit 1000 loss 10% 20%' Host: e64cd40f16e6 Timeout: 10s 
+[29/06/2017 03:18:09] Monkey: loss Finished - No netem rules active... Host: e64cd40f16e6 Timeout: 10s 
+[29/06/2017 03:18:26] Monkey: loss Started - ' dev eth0 root refcnt 2 limit 1000 loss 10% 20%' Host: e64cd40f16e6 Timeout: 10s 
+[29/06/2017 03:18:36] Monkey: loss Finished - No netem rules active... Host: e64cd40f16e6 Timeout: 10s 
+[29/06/2017 03:20:14] Monkey: latency Started - ' dev eth0 root refcnt 2 limit 1000 delay 2.0s  500.0ms' Host: e64cd40f16e6 Timeout: 10s 
+[29/06/2017 03:20:24] Monkey: latency Finished - No netem rules active... Host: e64cd40f16e6 Timeout: 10s 
+[29/06/2017 03:24:18] Monkey: latency Started - ' dev eth0 root refcnt 2 limit 1000 delay 2.0s  500.0ms' Host: e64cd40f16e6 Timeout: 10s 
+[29/06/2017 03:24:28] Monkey: latency Finished - No netem rules active... Host: e64cd40f16e6 Timeout: 10s 
+[29/06/2017 03:24:56] Monkey: latency Started - ' dev eth0 root refcnt 2 limit 1000 delay 2.0s  500.0ms' Host: e64cd40f16e6 Timeout: 10s 
+[29/06/2017 03:25:06] Monkey: latency Finished - No netem rules active... Host: e64cd40f16e6 Timeout: 10s 
+[29/06/2017 03:27:05] Monkey: latency Started - ' dev eth0 root refcnt 2 limit 1000 delay 2.0s  500.0ms' Host: e64cd40f16e6 Timeout: 10s 
+[29/06/2017 03:27:15] Monkey: latency Finished - No netem rules active... Host: e64cd40f16e6 Timeout: 10s 
+[29/06/2017 03:27:58] Monkey: latency Started - ' dev eth0 root refcnt 2 limit 1000 delay 2.0s  500.0ms' Host: e64cd40f16e6 Timeout: 10s 
+[29/06/2017 03:28:08] Monkey: latency Finished - No netem rules active... Host: e64cd40f16e6 Timeout: 10s 
+[29/06/2017 03:29:03] Monkey: latency Started - ' dev eth0 root refcnt 2 limit 1000 delay 2.0s  500.0ms' Host: e64cd40f16e6 Timeout: 10s 
+[29/06/2017 03:29:13] Monkey: latency Finished - No netem rules active... Host: e64cd40f16e6 Timeout: 10s 
+[29/06/2017 03:33:25] Monkey: latency Started - ' dev eth0 root refcnt 2 limit 1000 delay 2.0s  500.0ms' Host: e64cd40f16e6 Timeout: 10s 
+[29/06/2017 03:33:35] Monkey: latency Finished - No netem rules active... Host: e64cd40f16e6 Timeout: 10s 
+[29/06/2017 03:34:30] Monkey: latency Started - ' dev eth0 root refcnt 2 limit 1000 delay 2.0s  500.0ms' Host: e64cd40f16e6 Timeout: 10s 
+[29/06/2017 03:34:40] Monkey: latency Finished - No netem rules active... Host: e64cd40f16e6 Timeout: 10s 
+[29/06/2017 03:38:36] Monkey: latency Started - ' dev eth0 root refcnt 2 limit 1000 delay 2.0s  500.0ms' Host: e64cd40f16e6 Timeout: 10s 
+[29/06/2017 03:38:46] Monkey: latency Finished - No netem rules active... Host: e64cd40f16e6 Timeout: 10s 
+[29/06/2017 03:40:44] Monkey: latency Started - ' dev eth0 root refcnt 2 limit 1000 delay 2.0s  500.0ms' Host: e64cd40f16e6 Timeout: 10s 
+[29/06/2017 03:40:54] Monkey: latency Finished - No netem rules active... Host: e64cd40f16e6 Timeout: 10s 
+[29/06/2017 03:41:43] Monkey: latency Started - ' dev eth0 root refcnt 2 limit 1000 delay 2.0s  500.0ms' Host: e64cd40f16e6 Timeout: 10s 
+[29/06/2017 03:41:53] Monkey: latency Finished - No netem rules active... Host: e64cd40f16e6 Timeout: 10s 
+[03/07/2017 11:49:00] Monkey: latency Started - ' dev eth0 root refcnt 2 limit 1000 delay 2.0s  500.0ms' Host: e64cd40f16e6 Timeout: 10s 
+[03/07/2017 11:49:10] Monkey: latency Finished - No netem rules active... Host: e64cd40f16e6 Timeout: 10s 
+[03/07/2017 11:49:38] Monkey: latency Started - ' dev eth0 root refcnt 2 limit 1000 delay 2.0s  500.0ms' Host: e64cd40f16e6 Timeout: 10s 
+[03/07/2017 11:49:48] Monkey: latency Finished - No netem rules active... Host: e64cd40f16e6 Timeout: 10s 
+[03/07/2017 11:51:29] Monkey: latency Started - ' dev eth0 root refcnt 2 limit 1000 delay 200.0ms  100.0ms' Host: e64cd40f16e6 Timeout: 30s 
+[03/07/2017 11:51:59] Monkey: latency Finished - No netem rules active... Host: e64cd40f16e6 Timeout: 30s 
+[03/07/2017 11:52:47] Monkey: latency Started - ' dev eth0 root refcnt 2 limit 1000 delay 200.0ms  100.0ms' Host: e64cd40f16e6 Timeout: 30s 
+[03/07/2017 11:53:17] Monkey: latency Finished - No netem rules active... Host: e64cd40f16e6 Timeout: 30s 
+[03/07/2017 11:59:17] Monkey: latency Started - ' dev eth0 root refcnt 2 limit 1000 delay 200.0ms  100.0ms' Host: e64cd40f16e6 Timeout: 30s 
+[03/07/2017 11:59:47] Monkey: latency Finished - No netem rules active... Host: e64cd40f16e6 Timeout: 30s 
+[03/07/2017 12:01:43] Monkey: loss Started - ' dev eth0 root refcnt 2 limit 1000 loss 50% 80%' Host: e64cd40f16e6 Timeout: 20s 
+[03/07/2017 12:02:03] Monkey: loss Finished - No netem rules active... Host: e64cd40f16e6 Timeout: 20s 
+[03/07/2017 12:04:10] Monkey: loss Started - ' dev eth0 root refcnt 2 limit 1000 loss 50% 80%' Host: e64cd40f16e6 Timeout: 20s 
+[03/07/2017 12:04:30] Monkey: loss Finished - No netem rules active... Host: e64cd40f16e6 Timeout: 20s 
+[03/07/2017 12:04:43] Monkey: corrupt Started - ' dev eth0 root refcnt 2 limit 1000 corrupt 30%' Host: e64cd40f16e6 Timeout: 10s 
+[03/07/2017 12:04:53] Monkey: corrupt Finished - No netem rules active... Host: e64cd40f16e6 Timeout: 10s 
+[03/07/2017 12:06:31] Monkey: corrupt Started - ' dev eth0 root refcnt 2 limit 1000 corrupt 30%' Host: e64cd40f16e6 Timeout: 10s 
+[03/07/2017 12:06:41] Monkey: corrupt Finished - No netem rules active... Host: e64cd40f16e6 Timeout: 10s 
+[03/07/2017 12:09:52] Monkey: loss Started - ' dev eth0 root refcnt 2 limit 1000 loss 50% 80%' Host: e64cd40f16e6 Timeout: 20s 
+[03/07/2017 12:10:12] Monkey: loss Finished - No netem rules active... Host: e64cd40f16e6 Timeout: 20s 
+[03/07/2017 12:11:34] Monkey: latency Started - ' dev eth0 root refcnt 2 limit 1000 delay 200.0ms  100.0ms' Host: e64cd40f16e6 Timeout: 30s 
+[03/07/2017 12:12:04] Monkey: latency Finished - No netem rules active... Host: e64cd40f16e6 Timeout: 30s 
+[03/07/2017 12:13:57] Monkey: latency Started - ' dev eth0 root refcnt 2 limit 1000 delay 200.0ms  100.0ms' Host: e64cd40f16e6 Timeout: 30s 
+[03/07/2017 12:14:27] Monkey: latency Finished - No netem rules active... Host: e64cd40f16e6 Timeout: 30s 
+ [03/07/2017 17:22:48] Monkey: latency 'Error. Please set JOB_ID !' Host: e64cd40f16e6
+[03/07/2017 17:22:48] Monkey: latency Started - ' dev eth0 root refcnt 2 limit 1000 delay 200.0ms  100.0ms' Host: e64cd40f16e6 Timeout: 30s 
+[03/07/2017 17:23:18] Monkey: latency Finished - No netem rules active... Host: e64cd40f16e6 Timeout: 30s 
+[03/07/2017 17:23:50] Monkey: latency 'Error. Please set JOB_ID !' Host: e64cd40f16e6
+[03/07/2017 17:23:52] Monkey: latency 'Error. Please set JOB_ID !' Host: e64cd40f16e6
+[03/07/2017 17:23:54] Monkey: latency 'Error. Please set JOB_ID !' Host: e64cd40f16e6
+[03/07/2017 17:23:57] Monkey: latency 'Error. Please set JOB_ID !' Host: e64cd40f16e6
+[03/07/2017 17:24:44] Monkey: loss 'Error. Please set JOB_ID !' Host: e64cd40f16e6
+[03/07/2017 17:24:45] Monkey: loss 'Error. Please set JOB_ID !' Host: e64cd40f16e6
+[03/07/2017 17:24:47] Monkey: loss 'Error. Please set JOB_ID !' Host: e64cd40f16e6
+[03/07/2017 17:24:50] Monkey: loss 'Error. Please set JOB_ID !' Host: e64cd40f16e6
+[03/07/2017 17:26:18] Monkey: loss 'Error. Please set JOB_ID !' Host: e64cd40f16e6
+[03/07/2017 17:26:19] Monkey: loss 'Error. Please set JOB_ID !' Host: e64cd40f16e6
+[03/07/2017 17:26:21] Monkey: loss 'Error. Please set JOB_ID !' Host: e64cd40f16e6
+[03/07/2017 17:26:24] Monkey: loss 'Error. Please set JOB_ID !' Host: e64cd40f16e6
+[03/07/2017 17:27:40] Monkey: loss Started - ' dev eth0 root refcnt 2 limit 1000 loss 10% 20%' Host: e64cd40f16e6 Timeout: 10s 
+[03/07/2017 17:27:50] Monkey: loss Finished - No netem rules active... Host: e64cd40f16e6 Timeout: 10s 
+[03/07/2017 17:29:23] Job: TEST_1122334 Monkey: loss Started - ' dev eth0 root refcnt 2 limit 1000 loss 10% 20%' Host: e64cd40f16e6 Timeout: 10s 
+[03/07/2017 17:29:33] Job: TEST_1122334 Monkey: loss Finished - No netem rules active... Host: e64cd40f16e6 Timeout: 10s 
+[03/07/2017 17:30:17] Job: TEST_1122334 Monkey: loss Started - ' dev eth0 root refcnt 2 limit 1000 loss 10% 20%' Host: e64cd40f16e6 Timeout: 10s 
+[03/07/2017 17:30:27] Job: TEST_1122334 Monkey: loss Finished - No netem rules active... Host: e64cd40f16e6 Timeout: 10s 
+[03/07/2017 17:33:11] Job: TEST_1122334 Monkey: loss Started - ' dev eth0 root refcnt 2 limit 1000 loss 50% 60%' Host: e64cd40f16e6 Timeout: 30s 
+[03/07/2017 17:33:41] Job: TEST_1122334 Monkey: loss Finished - No netem rules active... Host: e64cd40f16e6 Timeout: 30s 
