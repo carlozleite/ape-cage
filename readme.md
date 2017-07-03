@@ -1,6 +1,6 @@
 ![logo](https://github.com/carlozleite/ape-cage/raw/a482e8b2ed07542e74e70b952e2f13e47432a695/ape-cage/lib/img/ape-cage-logo-1.png)
 
-Simple chaos monkey tests with http api.
+Simple chaos monkey tests with http api .
 
 Basic useful feature list:
 
