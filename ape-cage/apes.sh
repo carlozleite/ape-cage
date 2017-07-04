@@ -15,7 +15,7 @@ function parse_tc(){
 
 	if [ ! -z ${TCOUT} ] ; then
 
-	 	echo "[${TDATE}], Job:${JOB_ID}, Monkey:${monkey}, Msg:Started - '${TCOUT}', Host:${HOSTNAME} Timeout:${TMOUT}s " | tr '#' ' ' 
+	 	echo "[${TDATE}], Job:${JOB_ID}, Monkey:${monkey}, Msg:Started - '${TCOUT}', Host:${HOSTNAME}, Timeout:${TMOUT}s " | tr '#' ' ' 
 	else
 
 		echo "[${TDATE}], Job:${JOB_ID}, Monkey:${monkey}, Msg:Finished - No netem rules active..., Host:${HOSTNAME}, Timeout:${TMOUT}s " 
@@ -55,7 +55,7 @@ set_config(){
 
 			TDATE=`date "+%d/%m/%Y %H:%M:%S"`
 
-			echo "[${TDATE}], Monkey:${monkey}, Msg:'Error. Please set JOB_ID !', Host:${HOSTNAME}"
+			echo "[${TDATE}], Monkey:${monkey}, Msg:'Error. Please set JOB_ID !', Host:${HOSTNAME}, Timeout:0s"
 			exit 1 
 		fi
 }
@@ -131,7 +131,7 @@ function proc-kill(){
 
 	pkill -9 ${PROC}
 	TDATE=`date "+%d/%m/%Y %H:%M:%S"`                                                                                           
-        echo "[${TDATE}] Job:${JOB_ID}, Monkey:${monkey}, Msg:Kill processs ${PROC}, Host:${HOSTNAME} Timeout:${TMOUT}s" 
+        echo "[${TDATE}], Job:${JOB_ID}, Monkey:${monkey}, Msg:Kill processs ${PROC}, Host:${HOSTNAME}, Timeout:${TMOUT}s" 
 	sleep 5
 
 }
