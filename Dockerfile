@@ -7,7 +7,7 @@ ADD ape-cage /ape-cage
 RUN wget --no-check-certificate https://github.com/msoap/shell2http/releases/download/1.10/shell2http-1.10.linux.386.tar.gz -O /tmp/shell2http.tar.gz
 RUN tar -xvzf /tmp/shell2http.tar.gz -C /ape-cage/bin/ shell2http
 RUN rm -f /tmp/shell2http.tar.gz
-RUN wget http://central.maven.org/maven2/org/atmosphere/samples/spring-boot-sample-atmosphere/2.4.4/spring-boot-sample-atmosphere-2.4.4.jar -O /sample-app.jar
+RUN wget http://central.maven.org/maven2/de/codecentric/spring-boot-admin-sample/1.2.4/spring-boot-admin-sample-1.2.4.jar -O /sample-app.jar
 RUN pip install supervisor-logstash-notifier
 RUN sed -i s/enp0s8/eth0/g /ape-cage/etc/*
 ADD supervisor.d /etc/supervisor.d
