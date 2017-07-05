@@ -23,6 +23,7 @@ Monkeys avaliable:
 docker run  -i -d --cap-add=NET_ADMIN \
 --name ape-cage-v2 \
 -p 6666:8081 \
+-p 8080:8080 \
 -e LOGSTASH_SERVER='<LOGSTASH-IP-ADDR>' \
 -e LOGSTASH_PORT='6666' \
 -e LOGSTASH_PROTO='tcp' \
