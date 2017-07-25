@@ -18,7 +18,7 @@ function start(){
 
 IPADDR=$(dig ${HOSTNAME} +short)
 
-/usr/bin/consul-cli service register --consul ${CONSUL} --id=${IPADDR}:${SERVICE_NAME} --tag=chaos-ready --tag=${AUTH64} --check="http:10s:http://${IPADDR}:8081/health" ${SERVICE_NAME}
+/usr/bin/consul-cli service register --consul ${CONSUL} --id=${IPADDR}:${SERVICE_NAME} --tag=chaos-ready --tag=${AUTH64} --check="http:10s:http://${IPADDR}:8080/health" ${SERVICE_NAME}
 
 
 ${ACHOME}/bin/shell2http -port 8081 -basic-auth ${AUTH} -form /chaos/loss "${ACHOME}/apectl loss \$v_ape_config" \
