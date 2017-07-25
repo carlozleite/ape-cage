@@ -12,4 +12,5 @@ RUN pip install supervisor-logstash-notifier
 RUN sed -i s/enp0s8/eth0/g /ape-cage/etc/*
 ADD supervisor.d /etc/supervisor.d
 ADD supervisord.conf /etc/supervisord.conf
+ADD consul-cli /usr/bin/consul-cli
 CMD ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]
