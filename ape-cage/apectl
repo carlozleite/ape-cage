@@ -48,6 +48,12 @@ kill)
 
 ;;
 
+health)
+
+	echo '{ status: "UP" }'
+
+;;
+
 *)
 
 
